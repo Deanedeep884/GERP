@@ -1,0 +1,59 @@
+directive @goField(forceResolver: Boolean, name: String) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+scalar UUID
+scalar Time
+
+type GlobalEntity {
+    id: UUID!
+    legalName: String!
+    taxId: String!
+    countryCode: String!
+}
+
+type Asset {
+    id: UUID!
+    name: String!
+    type: String!
+    status: String!
+}
+
+type SalesOrder {
+    id: UUID!
+    totalValue: Int!
+    status: String!
+    
+    # Golden Thread Stitching (Resolved via MDM Domain)
+    customer: GlobalEntity! @goField(forceResolver: true)
+}
+
+type InventoryLot {
+    id: UUID!
+    quantity: Int!
+    
+    # Golden Thread Stitching (Resolved via EAM Domain)
+    warehouse: Asset! @goField(forceResolver: true)
+}
+
+input OrderItemInput {
+    lotId: UUID!
+    quantity: Int!
+}
+
+input CreateOrderInput {
+    transactionId: UUID!
+    customerId: UUID!
+    accountDebitId: UUID!
+    accountCreditId: UUID!
+    totalAmountCents: Int!
+    items: [OrderItemInput!]!
+}
+
+type Mutation {
+    # Fires the Temporal Orchestrator Saga Matrix
+    createSalesOrder(input: CreateOrderInput!): SalesOrder!
+}
+
+type Query {
+    getSalesOrder(id: UUID!): SalesOrder!
+    getInventoryLot(id: UUID!): InventoryLot!
+}
