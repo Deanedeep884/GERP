@@ -1,10 +1,12 @@
 {
   "mcpServers": {
-    "gerp-operator": {
+    "gerp-matrix": {
       "command": "go",
       "args": ["run", "./cmd/mcp/main.go"],
       "env": {
-        "GERP_GRAPHQL_ENDPOINT": "http://localhost:8080/query"
+        "GERP_GRAPHQL_ENDPOINT": "http://localhost:8080/query",
+        "GERP_TEMPORAL_HOST": "localhost:7233",
+        "GERP_SPANNER_DB": "projects/gerp-local-dev/instances/gerp-instance/databases/gerp-db"
       }
     }
   }
