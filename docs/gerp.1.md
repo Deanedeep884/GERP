@@ -1,14 +1,19 @@
 GERP(1)                                    GERP Matrix Man Page                                    GERP(1)
 
 NAME
-       gerp - Google ERP Master Control Plane
+       gerp - Google ERP Master Control Plane & Native Operator CLI
 
 SYNOPSIS
        make [COMMAND]
+       gerp [COMMAND] [ARGS...]
 
 DESCRIPTION
        The GERP control plane utilizes Makefile targets to orchestrate a distributed, 7-domain ERP 
        matrix structurally bound by Temporal Sagas and isolated Spanner data layers.
+       
+       The compiled `gerp` native CLI allows system administrators and AI Autonomous Agents to
+       mechanically route direct queries against the Spanner telemetry or asynchronously fire
+       complex Temporal execution traces.
 
 ARCHITECTURE
        The physical runtimes consist of:
@@ -16,8 +21,17 @@ ARCHITECTURE
        - Temporal Server (Local instance managing `GERP_GLOBAL_QUEUE`).
        - Go GraphQL Gateway (Port 8080: Binds the BFF execution).
        - Go Temporal Worker (Background: Listens for Saga dispatches).
+       - Go MCP Server (STDIO: Links external Model Context Protocol systems).
 
-COMMANDS
+CONFIGURATION
+       The `gerp` CLI relies natively on a `.gerp.yaml` configuration profile mapped to the 
+       user's local `$HOME` directory or explicitly bound via the following environment variables:
+       
+       GERP_GRAPHQL_ENDPOINT      Target API Gateway (Default: http://localhost:8080/query)
+       GERP_TEMPORAL_HOST         Temporal Control Queue (Default: localhost:7233)
+       GERP_SPANNER_DB            Sovereign Storage Domain Bounds
+
+MAKE COMMANDS
        make up
            Boot the local Docker infrastructure encompassing Spanner, Temporal, and associated matrix layers.
 
@@ -32,6 +46,16 @@ COMMANDS
 
        make generate
            Regenerate the physical Go bindings for the unified GraphQL API.
+
+GERP NATIVE COMMANDS
+       gerp status
+           Pings the GERP matrix execution limits and strictly formats the current operational bounds for the sysadmin.
+
+       gerp orders create
+           Triggers the Global Fulfillment Saga via GraphQL. Safely executing cross-domain mutations across SCM and Finance.
+
+       gerp audit view [target_record_id]
+           Bypasses the API Gateway to directly query Spanner ComplianceAudits locally. Deep inspection specifically formulated for Legal operations.
 
 SEE ALSO
        docker-compose(1), temporal(1), gcloud-spanner(1)

@@ -26,3 +26,20 @@ GERP solves this with **Temporal Workflows**. The `pipeline` handles transaction
 
 ## 4. The GraphQL BFF (`cmd/gateway`)
 The Backend-For-Frontend receives a universal, deeply nested query from our UIs. When a client requests an `InventoryLot` and its associated `Warehouse`, the Gateway fetches the `scm.InventoryLot`, notices the `WarehouseID` pointer, mathematically fans out the query to the isolated `eam.Service`, and stitches the object graph back together dynamically using `gqlgen` resolvers.
+
+## 5. The CLI Control Plane (`cmd/gerp`)
+The `gerp` binary is the native operator terminal giving system administrators direct, low-latency control and query capabilities into the core Spanner domains and Temporal execution queues using `spf13/cobra` (routing) and `spf13/viper` (configuration).
+
+- **Config Bound:** The binary dynamically binds to `.gerp.yaml` in the user's home directory across different shell environments or relies on `GERP_` prefixed environment variables.
+- By bypassing the BFF using commands like `gerp audit view`, the CLI securely isolates direct native Spanner telemetry for compliance operations.
+
+## 6. Infrastructure & Deployment (`build/`, `deploy/`)
+GERP utilizes mathematically reproducible cloud infrastructure and secure container limits:
+- **Docker Packaging (`build/docker/`):** Both `cmd/gateway` and `cmd/worker` exist natively as multi-stage Alpine images optimized for scalable deployment pods.
+- **Terraform (`deploy/terraform/`):** GCP-specific HashiCorp constraints physicalizing the raw Cloud Spanner limits (`google_spanner_instance`, `google_spanner_database`) absent rigid DDL schema mappings.
+- **Ansible (`deploy/ansible/`):** Orchestrates the deployment configuration variables on the executing hardware targeting Docker container lifecycles.
+
+## 7. The AI Brain Interface (MCP)
+GERP exposes FAANG-grade capabilities autonomously to outside LLMs via standard JSON-RPC STDIO built off the Model Context Protocol.
+
+The `cmd/mcp` Server binds to AI agents running on Cursor IDE, Claude Desktop, or centralized orchestration engines via `.cursor/mcp.json`. Agents inherently use the physical tools (`gerp_status`, `gerp_create_order`, `gerp_audit_view`) to mechanically command the Spanner databases and trigger automated Temporal subroutines strictly adhering to the `internal/cli` environmental scope bindings.
