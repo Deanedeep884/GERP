@@ -9,13 +9,6 @@ import (
 
 	"cloud.google.com/go/spanner"
 	"github.com/google/uuid"
-
-	"gerp/internal/eam"
-	"gerp/internal/finance"
-	"gerp/internal/hcm"
-	"gerp/internal/mdm"
-	"gerp/internal/revenue"
-	"gerp/internal/scm"
 )
 
 // Deterministic UUIDs so we can hardcode our GraphQL test mutations!

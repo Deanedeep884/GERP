@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/99designs/gqlgen/graphql"
 	"github.com/google/uuid"
+	"github.com/vektah/gqlparser/v2/ast"
 
 	"gerp/internal/eam"
 	"gerp/internal/mdm"
@@ -148,6 +150,8 @@ type OrderItemInput struct {
 }
 
 type Config struct{ Resolvers *Resolver }
-func NewExecutableSchema(c Config) *executableSchema { return &executableSchema{} }
+func NewExecutableSchema(c Config) graphql.ExecutableSchema { return &executableSchema{} }
 type executableSchema struct{}
-func (e *executableSchema) Exec(ctx context.Context) {}
+func (e *executableSchema) Schema() *ast.Schema { return nil }
+func (e *executableSchema) Complexity(ctx context.Context, typeName, fieldName string, childComplexity int, args map[string]any) (int, bool) { return 0, false }
+func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler { return nil }
