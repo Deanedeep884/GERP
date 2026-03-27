@@ -57,5 +57,14 @@ GERP NATIVE COMMANDS
        gerp audit view [target_record_id]
            Bypasses the API Gateway to directly query Spanner ComplianceAudits locally. Deep inspection specifically formulated for Legal operations.
 
+       gerp add coams
+           Injects the Content Operating & Management System into the local matrix. Seeds the QuanuX central Knowledge Vector and provisions pgvector AlloyDB shards dynamically.
+
+       gerp coams sync [directory]
+           Executes the Publish Saga Lifecycle across a directory of raw Markdown. Validates mathematical link integrity via the Agent-Index and broadcasts the dynamically generated GraphQL schema.
+
+       gerp coams gen-man
+           Autonomously generates extensive UNIX manual pages for COAMS sub-commands, seamlessly mapping back into the QuanuX Knowledge Vector bounds.
+
 SEE ALSO
        docker-compose(1), temporal(1), gcloud-spanner(1)
