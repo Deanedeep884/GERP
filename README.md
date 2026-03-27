@@ -10,6 +10,8 @@
 
 This is not just an ERP. It is a self-aware corporate engine exposed natively to AI agents via the Model Context Protocol (MCP).
 
+Designed to utilize the Google Workspace API for iam role management, permissions, and identity, then integrating all Gsuite tools & apps natively, creating a seamless ERP management system that completes the Google Workspace experiemce. Everything you need to run a business of any size, infinitely customizable, from a single vendor. Lightweight, lightspeed, Go code with the QuanuX Knowledge Vector enabling AI agents to build your ERP to their AGI standards while you focus on your business.
+
 ---
 
 ## 🏛️ Core Architectural Pillars
