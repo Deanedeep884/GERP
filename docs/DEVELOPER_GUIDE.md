@@ -7,7 +7,7 @@ To guarantee distributed, isolated micro-database performance at scale, GERP com
 
 Instead, GERP employs the **Golden Thread**: strict UUID pointers managed entirely in application space. A `SalesOrder` in `internal/revenue` physically stores a `CustomerID` (UUID), but it never explicitly joins that to the `mdm.GlobalEntities` table at the Spanner level. The graph stitching occurs strictly in memory at the BFF level.
 
-## 2. The 7 Tier-1 Domains
+## 2. The 8 Tier-1 Domains
 GERP separates its global state into 7 isolated execution environments:
 1. **Finance (`internal/finance`):** The immutable double-entry ledger (`Accounts`, `LedgerEntries`, `LineItems`).
 2. **Human Capital (`internal/hcm`):** The employee and compensation engine (`Employees`, `PayrollRuns`).
