@@ -44,6 +44,18 @@ GERP separates its global state into perfectly isolated execution environments:
 
 ---
 
+## 📝 The Content Engine (COAMS)
+
+**COAMS (Content Operating and Management System)** is the centralized, AI-First knowledge engine of the GERP matrix. It serves as the definitive **single point of truth** for all internal and external content delivery.
+
+Traditional headless CMS JSON/AST structures have been discarded. COAMS natively speaks Markdown, making it perfectly optimized for massive AI agent contextual ingestion. 
+
+It is an "Ignorant Engine" that chunks raw `.md` files into physically sharded AlloyDB vector embeddings (`pgvector`) while mathematically guaranteeing zero broken internal links via the **Agent-Index** (`doc:uuid`). It integrates autonomously with the GraphQL BFF, regenerating schema definitions dynamically as new content partitions are mapped.
+
+COAMS is completely self-bootstrapping and teaches external LLM agents its own architecture. Agents and human operators alike can directly consult the injected [QuanuX Knowledge Vector SKILL.md](internal/coams/docs/SKILL.md) and its dynamically generated Unix-style CLI manual pages to mechanically navigate the content repository.
+
+---
+
 ## 🚀 Getting Started (Local Matrix)
 
 GERP includes a massive infrastructure control plane designed for local Docker execution.
